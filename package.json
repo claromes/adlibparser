@@ -6,10 +6,10 @@
     "type": "module",
     "scripts": {
         "dev": "tsx src/parser/parser.ts",
-        "html": "parcel --dist-dir docs",
-        "build": "parcel build --dist-dir docs",
+        "html": "parcel",
+        "build": "parcel build",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d docs"
+        "deploy": "gh-pages -d dist"
     },
     "repository": {
         "type": "git",

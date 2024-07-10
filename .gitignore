@@ -2,3 +2,4 @@ node_modules
 *.har
 *.csv
 .parcel-cache
+dist
