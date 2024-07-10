@@ -1,0 +1,39 @@
+{
+    "name": "adlibparser",
+    "version": "0.1.0",
+    "description": "Parse HAR files from the Meta Ad Library website",
+    "source": "src/app/index.html",
+    "type": "module",
+    "scripts": {
+        "dev": "tsx src/parser/parser.ts",
+        "html": "parcel",
+        "build": "parcel build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/claromes/adlibparser.git"
+    },
+    "keywords": [
+        "meta",
+        "meta ad library",
+        "parser",
+        "HAR"
+    ],
+    "author": "Claromes",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/claromes/adlibparser/issues"
+    },
+    "homepage": "https://github.com/claromes/adlibparser#readme",
+    "dependencies": {
+        "papaparse": "^5.4.1"
+    },
+    "devDependencies": {
+        "@types/node": "^20.12.12",
+        "@types/papaparse": "^5.3.14",
+        "parcel": "^2.12.0",
+        "prettier": "3.2.5",
+        "tsx": "^4.16.2",
+        "typescript": "^5.4.5"
+    }
+}
