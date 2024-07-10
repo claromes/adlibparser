@@ -1,0 +1,60 @@
+body {
+    color:#3b5998;
+    font-family: Tahoma, Verdana, Geneva, sans-serif;
+    background-color: #edf1f8;
+}
+
+label {
+    font-size: 12px;
+}
+
+.bottom {
+    width: 500px;
+    padding-bottom: 10px;
+    border-bottom: #3B5998 1px dotted;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    width: 80px;
+    border: 1px solid #999;
+    border-color: #8b9dc3 #2f477a #29447e #1a356e;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .2);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    background-color: #5b72a9;
+}
+
+button:hover{
+	border: 1px solid #7683a1;
+	text-decoration: none;
+}
+
+#outputMessage {
+    margin-top: 10px;
+    height: 30px;
+}
+
+#outputMessage, #outputMessage a {
+    font-size: 12px;
+    color: #3B5998;
+    text-decoration: none;
+}
+
+#outputMessage a:hover {
+    text-decoration: underline;
+}
+
+footer, footer a {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #929499;
+}
