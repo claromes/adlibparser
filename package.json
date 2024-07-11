@@ -7,9 +7,7 @@
     "scripts": {
         "dev": "tsx src/parser/parser.ts",
         "html": "parcel",
-        "build": "parcel build",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist"
+        "build": "parcel build --dist-dir docs"
     },
     "repository": {
         "type": "git",
@@ -33,7 +31,6 @@
     "devDependencies": {
         "@types/node": "^20.12.12",
         "@types/papaparse": "^5.3.14",
-        "gh-pages": "^6.1.1",
         "parcel": "^2.12.0",
         "prettier": "3.2.5",
         "tsx": "^4.16.2",
