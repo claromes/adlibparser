@@ -1,23 +1,23 @@
 body {
+    max-width: 650px;
     color:#3b5998;
     font-family: Tahoma, Verdana, Geneva, sans-serif;
     background-color: #edf1f8;
 }
 
-label {
-    font-size: 12px;
-}
-
-.bottom {
-    width: 500px;
-    padding-bottom: 10px;
-    border-bottom: #3B5998 1px dotted;
+ol li {
+    margin-bottom: 10px;
 }
 
 #container {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding-top: 10px;
+}
+
+label {
+    font-size: 12px;
 }
 
 button {
@@ -40,7 +40,7 @@ button:hover{
 
 #outputMessage {
     margin-top: 10px;
-    height: 30px;
+    height: 20px;
 }
 
 #outputMessage, #outputMessage a {
@@ -54,7 +54,6 @@ button:hover{
 }
 
 footer, footer a {
-    margin-top: 10px;
     font-size: 12px;
     color: #929499;
 }

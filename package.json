@@ -7,7 +7,7 @@
     "scripts": {
         "dev": "tsx src/parser/parser.ts",
         "html": "parcel",
-        "build": "parcel build --dist-dir docs"
+        "build": "rm -rf docs && parcel build --dist-dir docs"
     },
     "repository": {
         "type": "git",
