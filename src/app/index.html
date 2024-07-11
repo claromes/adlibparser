@@ -3,8 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Parse HAR files from the Meta Ad Library and convert them to CSV">
+        <!-- Meta Tags -->
         <title>Meta Ad Library Parser</title>
+        <meta name="title" content="Meta Ad Library Parser" />
+        <meta name="description" content="Parse HAR files from the Meta Ad Library and convert them to CSV" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://claromes.github.io/adlibparser/" />
+        <meta property="og:title" content="Meta Ad Library Parser" />
+        <meta property="og:description" content="Parse HAR files from the Meta Ad Library and convert them to CSV" />
+        <meta property="og:image" content="../assets/og_image.jpg" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://claromes.github.io/adlibparser/" />
+        <meta property="twitter:title" content="Meta Ad Library Parser" />
+        <meta property="twitter:description" content="Parse HAR files from the Meta Ad Library and convert them to CSV" />
+        <meta property="twitter:image" content="../assets/og_image.jpg" />
+        <!-- Style -->
         <link rel="stylesheet" href="/src/app/style.css">
     </head>
     <body>
@@ -13,6 +26,9 @@
 
         <p class="text">
             Follow the instructions below on how to export the <a href="https://en.wikipedia.org/wiki/HAR_(file_format)" target="_blank">HAR</a> file from the Ad Library page, and then insert the file into this parser to download the data in comma-separated values (CSV) format.
+            <br>
+            <br>
+            This tool does not download media.
         </p>
 
         <ol class="text">
@@ -30,12 +46,17 @@
                         <p>
                             In the Developer Tools window, click on the "Network" tab.
                             <br>
+                            <br>
                             Make sure that network recording is enabled. It is usually enabled automatically when you open the "Network" tab, but check for a "record" button (usually a red circle) and click it if necessary.
                         </p>
                     </li>
                     <li>
                         <p>
                             With the Developer Tools open and network recording enabled, perform the search.
+                            <br>
+                            <br>
+                            <b>If necessary, continue scrolling through the page, as only what is rendered in the browser is available in the HAR file.</b>
+                            <br>
                             <br>
                             Wait until all necessary resources have loaded. This is indicated when the list of network requests in the "Network" tab stops updating.
                         </p>
@@ -60,9 +81,6 @@
                 <div id="outputMessage"></div>
             </li>
         </ol>
-
-
-
         <footer>
             Meta Ad Library Parser is licensed under the GNU General Public License v3.0. <a href="https://github.com/claromes/adlibparser" target="_blank">Source code</a>.
             <br>
