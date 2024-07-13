@@ -104,12 +104,41 @@ function flattenObject(ob: any, prefix: string = ""): FlattenedObject {
   return result;
 }
 
+// Get current datetime
+function getCurrentDateTime(): string {
+  const dateString = Date.now();
+
+  return `${dateString}`;
+}
+
+// Convert Unix timestamp to human-readable date
+function unixToDate(timestamp: number): string {
+  const date = new Date(timestamp * 1000);
+  return date.toLocaleString();
+}
+
 // Convert .har to .csv and return .csv as a string
 async function convertHarToCsv(file: Blob): Promise<string> {
   try {
     const jsonData = await readJsonFile(file);
     const resultsData = extractResultsData(jsonData);
-    const csv = Papa.unparse(resultsData);
+
+    const processedData = resultsData.map((row) => ({
+      ...row,
+      endDate:
+        typeof row.endDate === "number" ? unixToDate(row.endDate) : row.endDate,
+      "snapshot.creation_time":
+        typeof row["snapshot.creation_time"] === "number"
+          ? unixToDate(row["snapshot.creation_time"])
+          : row["snapshot.creation_time"],
+      startDate:
+        typeof row.startDate === "number"
+          ? unixToDate(row.startDate)
+          : row.startDate,
+    }));
+
+    const csv = Papa.unparse(processedData);
+
     return csv;
   } catch (error) {
     console.error("Error converting .har to CSV:", error);
@@ -117,15 +146,7 @@ async function convertHarToCsv(file: Blob): Promise<string> {
   }
 }
 
-// Get current datetime
-function getCurrentDateTime(): string {
-  const date = new Date();
-  const dateString = date.toDateString();
-  const dateStringReplaced = dateString.replace(/\s/g, "");
-
-  return dateStringReplaced;
-}
-
+// Generate download file
 document.addEventListener("DOMContentLoaded", () => {
   const convertButton = document.getElementById(
     "convertButton"
@@ -148,10 +169,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const csvData = await convertHarToCsv(file);
       const blob = new Blob([csvData], { type: "text/csv" });
       const downloadUrl = window.URL.createObjectURL(blob);
+
       const downloadLink = document.createElement("a");
       downloadLink.href = downloadUrl;
       downloadLink.download = `ad_lib_parser_${currDatetime}.csv`;
-      downloadLink.textContent = "Download the CSV";
+      downloadLink.textContent = `Download the CSV ${downloadLink.download}`;
 
       outputMessage.innerHTML = "";
       outputMessage.appendChild(downloadLink);
