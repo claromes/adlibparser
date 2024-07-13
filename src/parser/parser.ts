@@ -117,6 +117,15 @@ async function convertHarToCsv(file: Blob): Promise<string> {
   }
 }
 
+// Get current datetime
+function getCurrentDateTime(): string {
+  const date = new Date();
+  const dateString = date.toDateString();
+  const dateStringReplaced = dateString.replace(/\s/g, "");
+
+  return dateStringReplaced;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const convertButton = document.getElementById(
     "convertButton"
@@ -134,17 +143,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
+      const currDatetime = getCurrentDateTime();
+
       const csvData = await convertHarToCsv(file);
       const blob = new Blob([csvData], { type: "text/csv" });
       const downloadUrl = window.URL.createObjectURL(blob);
       const downloadLink = document.createElement("a");
       downloadLink.href = downloadUrl;
-      downloadLink.download = "output.csv";
+      downloadLink.download = `ad_lib_parser_${currDatetime}.csv`;
       downloadLink.textContent = "Download the CSV";
+
       outputMessage.innerHTML = "";
       outputMessage.appendChild(downloadLink);
     } catch (error) {
-      console.error("Error converting .har to CSV:", error);
+      console.error("Error converting HAR to CSV:", error);
       outputMessage.textContent = "An error occurred. Please try again later.";
     }
   });
